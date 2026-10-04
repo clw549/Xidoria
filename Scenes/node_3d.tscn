@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ig8cdca45ob2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tvci3"]
+height = 12.0
+radius = 1.2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ax1nb"]
+noise_type = 0
+frequency = 0.0124
+fractal_type = 2
+fractal_lacunarity = 2.3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jkuf1"]
+noise = SubResource("FastNoiseLite_ax1nb")
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chukt"]
+albedo_color = Color(0.5350509, 0.32905892, 0.1823566, 1)
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_jkuf1")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tvci3"]
+material = SubResource("StandardMaterial3D_chukt")
+top_radius = 0.25
+bottom_radius = 1.2
+height = 11.950001
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2rsdo"]
+noise_type = 0
+seed = 3
+frequency = 0.0409
+fractal_lacunarity = 0.1
+fractal_gain = 0.0
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tvci3"]
+noise = SubResource("FastNoiseLite_2rsdo")
+seamless = true
+
+[node name="Node3D" type="Node3D" unique_id=14329908]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1223135674]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1261995653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.015625, 0)
+shape = SubResource("CylinderShape3D_tvci3")
+debug_color = Color(0.73333335, 0.47058824, 0, 0.41960785)
+
+[node name="Trunk" type="MeshInstance3D" parent="." unique_id=927579103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9906254, 0)
+mesh = SubResource("CylinderMesh_tvci3")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1079182861]
+transform = Transform3D(0.23936284, -0.072148666, 0, 0.072148666, 0.23936284, 0, 0, 0, 0.25, -1.9087396, 10, 0)
+modulate = Color(0, 0.9764706, 0.16862746, 1)
+texture = SubResource("NoiseTexture2D_tvci3")

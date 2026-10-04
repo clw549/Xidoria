@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://4obsy3mxj0t8"]
+
+[ext_resource type="Script" uid="uid://uneogmyy1bac" path="res://Scripts/inventory.gd" id="1_48pgg"]
+
+[node name="Panel" type="Panel" unique_id=162780547]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -259.0
+offset_right = 24.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_48pgg")
+num_items = 16
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=609403086]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -79.0
+offset_right = 133.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=992134261]

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://mpa3idnkgc25"]
+
+[ext_resource type="Script" uid="uid://y0qx47ob7emu" path="res://Scripts/emyfox.gd" id="1_v4k5h"]
+[ext_resource type="Texture2D" uid="uid://dh86tb4dff2xn" path="res://Sprites/fox.png" id="2_pqlfu"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2rsdo"]
+points = PackedVector3Array(0, 0, 0, 30, 0, -5, 30, 0, 5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_chukt"]
+height = 0.001
+radius = 2.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tvci3"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_tvci3"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=574944382]
+collision_mask = 9
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_v4k5h")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=430655552]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+billboard = 2
+texture = ExtResource("2_pqlfu")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=281706419]
+radius = 1.49
+
+[node name="Area3D" type="Area3D" parent="." unique_id=368277056]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+collision_layer = 0
+collision_mask = 8
+
+[node name="sight_shape" type="CollisionShape3D" parent="Area3D" unique_id=511584245]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_2rsdo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=821295848]
+shape = SubResource("CylinderShape3D_chukt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1772007598]
+shape = SubResource("CapsuleShape3D_tvci3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=47021705]
+visible = false
+mesh = SubResource("QuadMesh_tvci3")
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

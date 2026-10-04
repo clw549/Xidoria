@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://d1l2fvd7x8w86"]
+
+[ext_resource type="Script" uid="uid://5vp7b7efrxpf" path="res://Scripts/item.gd" id="1_w3muv"]
+[ext_resource type="Texture2D" uid="uid://csy7rg0fb3c7j" path="res://Sprites/stick.png" id="2_q64ul"]
+
+[resource]
+script = ExtResource("1_w3muv")
+item_name = "stick"
+stack_size = 32
+count = 1
+texture = ExtResource("2_q64ul")
+metadata/_custom_type_script = "uid://5vp7b7efrxpf"

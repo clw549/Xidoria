@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://vfk8d6abnrv4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvci3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rsdo"]
+albedo_color = Color(0.34576467, 0.21815199, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tvci3"]
+material = SubResource("StandardMaterial3D_2rsdo")
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=599734232]
+collision_layer = 3
+collision_mask = 13
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1569636563]
+shape = SubResource("BoxShape3D_tvci3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1411670420]
+mesh = SubResource("BoxMesh_tvci3")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." unique_id=1497594050]
+radius = 0.7
+affect_navigation_mesh = true
+carve_navigation_mesh = true
