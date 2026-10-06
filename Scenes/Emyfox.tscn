@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://y0qx47ob7emu" path="res://Scripts/emyfox.gd" id="1_v4k5h"]
 [ext_resource type="Texture2D" uid="uid://dh86tb4dff2xn" path="res://Sprites/fox.png" id="2_pqlfu"]
+[ext_resource type="Texture2D" uid="uid://c2i1nhre8wsma" path="res://Sprites/circle.png" id="3_b3jj0"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2rsdo"]
 points = PackedVector3Array(0, 0, 0, 30, 0, -5, 30, 0, 5)
@@ -23,6 +24,7 @@ script = ExtResource("1_v4k5h")
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=430655552]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 billboard = 2
+render_priority = 5
 texture = ExtResource("2_pqlfu")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=281706419]
@@ -47,6 +49,14 @@ shape = SubResource("CapsuleShape3D_tvci3")
 visible = false
 mesh = SubResource("QuadMesh_tvci3")
 
+[node name="swing_visual" type="Sprite3D" parent="." unique_id=1493538531]
+transform = Transform3D(10, 0, 0, 0, -4.371139e-07, -10, 0, 10, -4.371139e-07, 0, 0, 0)
+visible = false
+texture = ExtResource("3_b3jj0")
+
+[node name="Atk_timer" type="Timer" parent="." unique_id=1137060542]
+
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Atk_timer" to="." method="_on_atk_timer_timeout"]

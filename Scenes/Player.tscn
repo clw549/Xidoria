@@ -23,4 +23,15 @@ shape = SubResource("CapsuleShape3D_tvci3")
 transform = Transform3D(1, 0, 0, 0, 0.8999094, 0.43607697, 0, -0.43607697, 0.8999094, 0, 2.9998124, 3.4294107)
 fov = 72.175095
 
+[node name="HealthBar" type="ProgressBar" parent="Camera3D" unique_id=192316655]
+anchors_preset = -1
+anchor_right = 0.080000006
+anchor_bottom = 0.142
+offset_left = 21.0
+offset_top = 39.0
+offset_right = 43.839996
+offset_bottom = -23.016006
+
 [node name="inventory" parent="." unique_id=1022538079 instance=ExtResource("2_kpjcp")]
+visible = false
+anchors_preset = 8

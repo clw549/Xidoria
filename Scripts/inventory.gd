@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		#var item = preload("res://blueberries.tres")
 		#print("insert leftover",insert_item(item, 5))
 func construct_slot() -> Variant:
-	var slot = preload("res://inventory_slot.tscn").instantiate()
+	var slot = preload("res://Scenes/inventory_slot.tscn").instantiate()
 	return slot
 #var data_bk
 #func _notification(what: int) -> void:

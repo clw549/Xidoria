@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody3D
 @onready var inventory: Inventory = $inventory
+@onready var health_bar: ProgressBar = $Camera3D/HealthBar
 
 
 const SPEED = 10
@@ -12,8 +13,12 @@ const JUMP_VELOCITY : float = 4.5
 @export var max_health : int = 10
 @export var current_health :float = 10
 
+func _ready() -> void:
+	health_bar.max_value = max_health
 
 func _physics_process(delta: float) -> void:
+	
+	health_bar.value = current_health
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -56,3 +61,8 @@ func handle_input():
 		else:
 			inventory.hide()
 		
+
+func damage(damage:float):
+	current_health -= damage
+	if current_health <= 0:
+		get_tree().reload_current_scene()

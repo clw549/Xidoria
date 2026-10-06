@@ -3,16 +3,19 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+@onready var atk_timer: Timer = $Atk_timer
 
 var _players_seeing: Array[Node3D] = []
 var _searching = true
 var _time = 0
 
 @onready var navigation_agent = $NavigationAgent3D as NavigationAgent3D
+@onready var swing_visual: Sprite3D = $swing_visual
 
 @export var health = 4
 @export var attack = 4
 @export var agility = 8
+var atk_flag = true
 
 
 func _physics_process(delta: float) -> void:
@@ -22,6 +25,16 @@ func _physics_process(delta: float) -> void:
 		navigation_agent.target_position = _players_seeing[0].global_position
 		
 		look_at(_players_seeing[0].global_position)
+		if atk_flag:
+			if global_position.distance_to(_players_seeing[0].global_position) < 2:
+				swing_visual.show()
+				atk_timer.start()
+				_players_seeing[0].damage(attack)
+				atk_flag = false
+			else:
+				swing_visual.hide()
+		else:
+			swing_visual.hide()
 		
 		#if !$NavigationAgent3D.is_target_reached():
 			#$NavigationAgent3D.velocity = (Vector3(0,0,-1).rotated(Vector3(0,1,0),rotation.y))*agility
@@ -63,3 +76,8 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
 	move_and_slide()
+
+
+func _on_atk_timer_timeout() -> void:
+	atk_flag = true
+	pass # Replace with function body.

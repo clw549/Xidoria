@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ig8cdca45ob2"]
 
+[ext_resource type="Texture2D" uid="uid://gsb81pp17qp5" path="res://Sprites/leaves.png" id="1_7q7q3"]
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tvci3"]
 height = 12.0
 radius = 1.2
@@ -25,18 +27,6 @@ top_radius = 0.25
 bottom_radius = 1.2
 height = 11.950001
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2rsdo"]
-noise_type = 0
-seed = 3
-frequency = 0.0409
-fractal_lacunarity = 0.1
-fractal_gain = 0.0
-domain_warp_enabled = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tvci3"]
-noise = SubResource("FastNoiseLite_2rsdo")
-seamless = true
-
 [node name="Node3D" type="Node3D" unique_id=14329908]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1223135674]
@@ -51,6 +41,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9906254, 0)
 mesh = SubResource("CylinderMesh_tvci3")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1079182861]
-transform = Transform3D(0.23936284, -0.072148666, 0, 0.072148666, 0.23936284, 0, 0, 0, 0.25, -1.9087396, 10, 0)
+transform = Transform3D(0.95745134, -0.28859466, 0, 0.28859466, 0.95745134, 0, 0, 0, 1, 0, 10, 0)
+modulate = Color(0.61960787, 0.9764706, 0.16862746, 1)
+texture = ExtResource("1_7q7q3")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=229566016]
+transform = Transform3D(0.95745146, -0.2885947, 0, 0.21765016, 0.72208345, 0.65667653, -0.18951333, -0.6287358, 0.7541724, 0, 10, 0)
+modulate = Color(0.32941177, 0.7294118, 0.16862746, 1)
+texture = ExtResource("1_7q7q3")
+
+[node name="Sprite3D5" type="Sprite3D" parent="." unique_id=1824572867]
+transform = Transform3D(-0.35850912, -0.9237288, 0.13489345, 0.82373005, -0.38101387, -0.41987795, 0.43924966, -0.039414227, 0.89750004, 0, 10, 0)
 modulate = Color(0, 0.9764706, 0.16862746, 1)
-texture = SubResource("NoiseTexture2D_tvci3")
+texture = ExtResource("1_7q7q3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1126877490]
+transform = Transform3D(0.7451097, 0.110036746, 0.657802, 0.052644435, 0.97351474, -0.22248067, -0.66486084, 0.20040213, 0.71958244, 0, 10, 0)
+modulate = Color(0, 0.9764706, 0.16862746, 1)
+texture = ExtResource("1_7q7q3")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=1242009406]
+transform = Transform3D(-0.44982195, 0.13558517, 0.8827666, -0.14442652, 0.9643577, -0.22171074, -0.8813632, -0.22722527, -0.41420707, 0, 10, 0)
+modulate = Color(0, 0.9764706, 0.16862746, 1)
+texture = ExtResource("1_7q7q3")
