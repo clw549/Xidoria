@@ -2,7 +2,9 @@ class_name Player
 extends CharacterBody3D
 @onready var inventory: Inventory = $inventory
 @onready var health_bar: ProgressBar = $Camera3D/HealthBar
+@onready var area_3d: Area3D = $Area3D
 
+var collect_list : Array[Bush] = []
 
 const SPEED = 10
 
@@ -60,9 +62,41 @@ func handle_input():
 			inventory.show()
 		else:
 			inventory.hide()
-		
+	if Input.is_action_just_pressed("collect"):
+		for collectable in area_3d.get_overlapping_areas():
+			print(collectable.name, collectable.get_parent_node_3d())
+			
+			if collectable.get_parent() is Bush:
+				collectable.get_parent().collect_signal.emit(self)
+			
 
 func damage(damage:float):
 	current_health -= damage
 	if current_health <= 0:
 		get_tree().reload_current_scene()
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is Bush:
+		
+		collect_list.append(body)
+	print(body)
+	pass # Replace with function body.
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if collect_list.has(body):
+		collect_list.erase(body)
+	pass # Replace with function body.
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if area.get_parent_node_3d() as Bush:
+		collect_list.append(area.get_parent_node_3d())
+	print(area.get_parent_node_3d())
+
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	if collect_list.has(area):
+		collect_list.erase(area)
