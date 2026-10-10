@@ -17,7 +17,6 @@ var _time = 0
 @export var agility = 8
 var atk_flag = true
 
-
 func _physics_process(delta: float) -> void:
 	_time += delta
 	velocity = Vector3(0,0,0)
@@ -81,3 +80,9 @@ func _on_velocity_computed(safe_velocity: Vector3):
 func _on_atk_timer_timeout() -> void:
 	atk_flag = true
 	pass # Replace with function body.
+
+func hit(damage:float):
+	health -= damage
+	if health <= 0:
+		queue_free()
+	

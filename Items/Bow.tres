@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://8qgremqi221d"]
+
+[ext_resource type="Script" uid="uid://b0ci7ykrrhmw1" path="res://weapon.gd" id="1_hm4de"]
+[ext_resource type="Texture2D" uid="uid://b515mlupa2if1" path="res://Sprites/bow.png" id="2_7rpc7"]
+
+[resource]
+script = ExtResource("1_hm4de")
+attack = 0.8
+speed = 1.6
+knockback = 0.9
+item_name = "Bow"
+stack_size = 1
+texture = ExtResource("2_7rpc7")
+metadata/_custom_type_script = "uid://b0ci7ykrrhmw1"

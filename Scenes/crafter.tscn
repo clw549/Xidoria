@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bt2l8yvkllxq4"]
+
+[ext_resource type="Script" uid="uid://psqhg41hd2x1" path="res://crafter.gd" id="1_5pxk1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f857k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsfm1"]
+albedo_color = Color(0.48235294, 0.4509804, 0.4745098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5pxk1"]
+material = SubResource("StandardMaterial3D_dsfm1")
+
+[node name="Crafter" type="Node3D" unique_id=530033144]
+script = ExtResource("1_5pxk1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=359917237]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1547322865]
+shape = SubResource("BoxShape3D_f857k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1214582555]
+mesh = SubResource("BoxMesh_5pxk1")

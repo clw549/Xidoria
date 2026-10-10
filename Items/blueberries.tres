@@ -7,6 +7,6 @@
 script = ExtResource("1_vk1fu")
 item_name = "blueberries"
 stack_size = 12
-count = 5
 texture = ExtResource("2_03b3f")
+type = 1
 metadata/_custom_type_script = "uid://5vp7b7efrxpf"

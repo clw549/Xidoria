@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ccsbdokblj5m"]
+
+[ext_resource type="Script" uid="uid://bya7jrtvg7f6s" path="res://Scripts/arrow.gd" id="1_7ryke"]
+[ext_resource type="Texture2D" uid="uid://bbje5osvlqkks" path="res://Sprites/arrow.png" id="1_xv4f7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tvci3"]
+radius = 0.3
+
+[node name="Area3D" type="Area3D" unique_id=1661061428]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_7ryke")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1731758142]
+transform = Transform3D(-5.9604645e-08, 1, 0, -1, -5.9604645e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_tvci3")
+
+[node name="Node3D" type="Node3D" parent="CollisionShape3D" unique_id=1117466138]
+
+[node name="Sprite3D" type="Sprite3D" parent="CollisionShape3D/Node3D" unique_id=2100952642]
+transform = Transform3D(1.4142133, -1.4142138, -5.7392057e-08, -3.1290952e-09, -8.4293696e-08, 2, -1.4142138, -1.4142133, -6.181723e-08, 0, 0, 0)
+texture = ExtResource("1_xv4f7")
+
+[node name="Sprite3D3" type="Sprite3D" parent="CollisionShape3D/Node3D" unique_id=657990695]
+transform = Transform3D(3.4915608e-08, 8.4293696e-08, -1.9999998, 1.4142133, -1.4142135, -1.9510935e-07, -1.4142134, -1.4142134, -5.9604645e-08, 0, 0, 0)
+texture = ExtResource("1_xv4f7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

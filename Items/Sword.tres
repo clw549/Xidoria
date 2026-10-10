@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://dfj6uddqqhv80"]
+
+[ext_resource type="Script" uid="uid://b0ci7ykrrhmw1" path="res://weapon.gd" id="1_jm3gf"]
+[ext_resource type="Texture2D" uid="uid://dbahylbowps7p" path="res://Sprites/sword.png" id="2_5nuw4"]
+
+[resource]
+script = ExtResource("1_jm3gf")
+attack = 3.0
+speed = 0.9
+knockback = 1.1
+item_name = "Sword"
+stack_size = 1
+texture = ExtResource("2_5nuw4")
+metadata/_custom_type_script = "uid://b0ci7ykrrhmw1"
